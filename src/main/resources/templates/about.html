@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<fragment th:replace="fragments/head" ></fragment>
+
+<body>
+  <!-- ======= Header ======= -->
+  <fragment th:replace="fragments/header" ></fragment>
+  <!-- End Header -->
+
+  <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>About Us</h2>
+
+      </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <fragment th:replace="fragments/about" ></fragment>
+    <!-- End About Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <fragment th:replace="fragments/counts" ></fragment>
+    <!-- End Counts Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <p>What are they saying</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide" th:each="testimonial : ${testimonialList}">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img th:src="@{'/profile/image/' + ${testimonial.userid}}" class="testimonial-img" alt="">
+                  <h3 th:text="${testimonial.username}"></h3>
+                  <h4 th:text="${testimonial.title}"></h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    <span th:text="${testimonial.body}"></span>
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <fragment th:replace="fragments/footer" ></fragment>
+</body>
+
+</html>

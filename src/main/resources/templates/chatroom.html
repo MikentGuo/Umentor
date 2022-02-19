@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<fragment th:replace="fragments/head" ></fragment>
+
+<body>
+	<!-- ======= Header ======= -->
+	<fragment th:replace="fragments/header" ></fragment>
+	<!-- End Header -->
+	<main id="main">
+		<div class="chatroomtitle">
+				<h2 th:text="${coursetitle}">Chatroom</h2>
+				<a th:href="@{'/course-details/' + ${courseid}}" class="get-started-btn">Back</a>
+		</div>
+
+		<div class="container">
+			<!--<div class="wrapper d-flex align-items-stretch">-->
+					<div id="content" style="background-color: aliceblue;width:100%; height:75vh;">
+					</div>
+			<!--</div>-->
+		</div>
+	</main>
+
+	<!-- ======= JavasScript ======= -->
+	<!-- Vendor JS Files -->
+	<script th:src="@{/assets/js/jquery.min.js}"></script>
+	<script th:src="@{/assets/vendor/purecounter/purecounter.js}"></script>
+	<script th:src="@{/assets/vendor/aos/aos.js}"></script>
+	<script th:src="@{/assets/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/assets/vendor/swiper/swiper-bundle.min.js}"></script>
+	<!-- Template Main JS File -->
+	<script th:src="@{/assets/js/main.js}"></script>
+	<script th:inline="javascript">
+      var chatServerURL = "https://umentorchat.herokuapp.com/chat.html?";
+      var photoURL = "https://umentorapp.herokuapp.com/profile/image/";
+
+      $(document).ready(function() {
+          var userInfo = [[${userInfo}]];
+          console.log("userInfo:",[[${userInfo}]])
+          if(userInfo == null)
+              return;
+
+          var url = encodeURI(chatServerURL + "uid=" + userInfo.id + "&name=" +
+              userInfo.username + "&room=" + [[${courseid}]] + "&token=" + "fsd01" + "&photo=" + photoURL + userInfo.id);
+
+          console.log("chat url:", url)
+          var data = "<iframe src='"+url+"' width='100%' height='100%' " +
+              "frameborder='no' border='0' marginwidth='0' marginheight='0' style='padding-left:0px;'></iframe> ";
+          $('#content').html(data);
+      });
+
+	</script>
+
+	<script th:inline="javascript">
+      if([[${navbarid}]] != null)
+          $([[${navbarid}]]).addClass("active")
+	</script>
+</body>
+</html>

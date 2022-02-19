@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<fragment th:replace="fragments/head" ></fragment>
+
+<body>
+
+<!-- ======= Header ======= -->
+<fragment th:replace="fragments/header" ></fragment>
+<!-- End Header -->
+
+<main id="main">
+    <br><br><br>
+    <section id="hero" class="d-flex justify-content-center align-items-center">
+        <div style="width: 850px; border-radius: 25px;background-color: #0a53be7f" class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+            <div class="container" data-aos="fade-up">
+                <form method="post" class="form-a" th:action="@{/login}">
+                    <div class="row g-5">
+                        <div class="col-md-7 mx-auto">
+                            <h1>Sign In</h1>
+                        </div>
+                        <div class="col-md-7 mx-auto">
+                            <h2 class="text-danger" th:if="${loginError}" >Invalid username/password, or inactive account</h2>
+                        </div>
+                        <div class="col-md-7 mx-auto">
+                            <label for="email" class="text-light">Email address</label>
+                            <input type="text" id="email" name="username" class="form-control">
+                        </div>
+                        <div class="col-md-7 mx-auto">
+                            <label for="password" class="text-light">Password</label>
+                            <input type="password" id="password" name="password" class="form-control">
+                        </div>
+                        <br>
+                        <div class="col-md-7 mx-auto">
+                            <label for="remember-me" class="text-light">Remember me</label>
+                            <input type="checkbox" id="remember-me" name="remember-me">
+                        </div>
+                        <div class="col-md-7 mx-auto">
+                            <button type="submit" class="btn-get-started text-dark" name="submit">Sign In</button>
+                            <a th:href="@{/register}" class="get-started-btn text-dark">Sign Up</a>
+                        </div>
+                        <div class="col-md-7 mx-auto"></div>
+                        <div class="col-md-7 mx-auto"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<fragment th:replace="fragments/footer" ></fragment>
+</body>
+
+</html>

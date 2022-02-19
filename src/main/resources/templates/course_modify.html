@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<fragment th:replace="fragments/head" ></fragment>
+<body>
+
+<!-- ======= Header ======= -->
+<fragment th:replace="fragments/header" ></fragment>
+<!-- End Header -->
+
+<main id="main">
+
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs" data-aos="fade-in">
+    <div class="container">
+      <h2>Manage Course</h2>
+    </div>
+  </div><!-- End Breadcrumbs -->
+
+  <!-- ======= Cource Details Section ======= -->
+  <section id="course-details" class="course-details">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row">
+        <div class="col-lg-8">
+          <img th:src="@{'/courses/image/' + ${course.id}}" class="img-fluid" alt="">
+
+          <div class="course-info d-flex justify-content-between align-items-center">
+            <h5>Schedule</h5>
+            <p th:text="${#temporals.format(course.startTime, 'yyyy/MM/dd HH:mm')} + ' - ' + ${#temporals.hour(course.startTime) + 2} + ':' + ${#temporals.minute(course.startTime)}">5.00 pm - 7.00 pm</p>
+          </div>
+          <h3 th:text="${course.title}"></h3>
+          <p th:text="${course.body}">
+            Qui et explicabo voluptatem et ab qui vero et voluptas. Sint voluptates temporibus quam autem. Atque nostrum voluptatum laudantium a doloremque enim et ut dicta. Nostrum ducimus est iure minima totam doloribus nisi ullam deserunt. Corporis aut officiis sit nihil est. Labore aut sapiente aperiam.
+            Qui voluptas qui vero ipsum ea voluptatem. Omnis et est. Voluptatem officia voluptatem adipisci et iusto provident doloremque consequatur. Quia et porro est. Et qui corrupti laudantium ipsa.
+            Eum quasi saepe aperiam qui delectus quaerat in. Vitae mollitia ipsa quam. Ipsa aut qui numquam eum iste est dolorum. Rem voluptas ut sit ut.
+          </p>
+          <br>
+          <h3>Student List</h3>
+          <table class = "table table-striped table-bordered">
+            <thead class = "table-dark">
+            <tr>
+              <th> Student Name</th>
+              <th> Student Email </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each = "user: ${studentList}">
+              <td th:text = "${user.name}"></td>
+              <td><a th:href="@{'mailto:' + ${user.email}}" th:text = "${user.email}"></a></td>
+
+            </tr>
+            </tbody>
+
+          </table>
+        </div>
+        <div class="col-lg-4">
+          <form method="POST" enctype="multipart/form-data" th:action="@{'/course/image/upload/' + ${course.id}}">
+            <div class="col-md-7 mx-auto">
+              <h3>Upload Course Image</h3>
+            </div>
+            <div class="col-md-7 mx-auto">
+              <input class="form-control form-control-lg form-control-a" type="file" id="file" name="file"/>
+            </div>
+            <div class="text-center">
+              <input type="submit" name="submit" value="Upload" class="get-started-btn"/>
+            </div>
+          </form>
+          <form method="POST" th:action="@{'/teacher/course-modify/' + ${course.id}}" th:object="${tempCourse}">
+            <div class="col-md-7 mx-auto">
+              <h3>Update course details</h3>
+              <h4 th:if="${success}" th:text="${success}" class="text-success"></h4>
+            </div>
+            <div class="col-md-7 mx-auto">
+              <label  class="text-black">Title</label>
+              <input type="text"  th:field="*{title}" class="form-control" >
+              <div class="text-danger" th:if="${titleErr}" th:text="${titleErr}"></div>
+            </div>
+            <div class="col-md-7 mx-auto">
+              <label class="text-black">Introduction</label>
+              <textarea type="text"  class="form-control" th:field="*{body}" ></textarea>
+              <div class="text-danger" th:if="${bodyErr}" th:text="${bodyErr}"></div>
+            </div>
+            <div class="col-md-7 mx-auto">
+              <label  class="text-black">Available Seats</label>
+              <input type="number"  th:field="*{seats}" class="form-control" >
+              <div class="text-danger" th:if="${seatsErr}" th:text="${seatsErr}"></div>
+            </div>
+            <div class="col-md-7 mx-auto">
+              <label  class="text-black">Start Time</label>
+              <input type="datetime-local" th:field="*{stringStartTime}" class="form-control" >
+              <div class="text-danger" th:if="${startTimeErr}" th:text="${startTimeErr}"></div>
+            </div>
+            <div class="text-center">
+              <input type="submit" name="submit" value="Update" class="get-started-btn"/>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Cource Details Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<fragment th:replace="fragments/footer" ></fragment>
+
+
+</body>
+
+</html>

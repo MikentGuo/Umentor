@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<fragment th:replace="fragments/head" ></fragment>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top" th:insert="fragments/header">
+</header><!-- End Header -->
+
+<main id="main">
+    <div class="errorpage" data-aos="fade-in">
+        <div class="container">
+            <h2>Internal Error</h2>
+            <h2 th:if="${tokenNotFound}" th:text="${tokenNotFound}"></h2>
+            <h2 th:if="${confirmedToken}" th:text="${confirmedToken}"></h2>
+            <h2 th:if="${expiredToken}" th:text="${expiredToken}"></h2>
+            <h2 th:if="${forbidden}" th:text="${forbidden}"></h2>
+        </div>
+    </div>
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer th:insert="fragments/footer"></footer>
+</body>
+
+</html>

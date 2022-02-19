@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<fragment th:replace="fragments/head" ></fragment>
+<body>
+
+<!-- ======= Header ======= -->
+<fragment th:replace="fragments/header" ></fragment>
+<!-- End Header -->
+
+<main id="main">
+    <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+            <h2>Success</h2>
+            <h2 th:if="${enabled}" th:text="${enabled}"></h2>
+            <h2 th:if="${registered}" th:text="${registered}"></h2>
+        </div>
+    </div><!-- End Breadcrumbs -->
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<fragment th:replace="fragments/footer" ></fragment>
+</body>
+
+</html>

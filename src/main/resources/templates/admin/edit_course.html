@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Management System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+<fragment th:replace="fragments/adminnavbar" ></fragment>
+<br>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Update Course </h1>
+				<form method="POST" enctype="multipart/form-data" th:action="@{'/admin/course/image/upload/' + ${course.id}}">
+					<div class="col-md-7 mx-auto">
+						<h3>Upload Course Image</h3>
+					</div>
+					<div class="col-md-7 mx-auto">
+						<input class="form-control form-control-lg form-control-a" type="file" id="file" name="file"/>
+					</div>
+					<div class="text-center">
+						<input type="submit" name="submit" value="Upload" class="get-started-btn"/>
+					</div>
+				</form>
+				<div class = "card-body">
+					<form th:action="@{/admin/courses/{id} (id=${course.id})}" th:object="${course}" method="POST">
+						<div class ="form-group">
+							<label> Course Title </label>
+							<input
+							type = "text"
+							name = "title"
+							th:field = "*{title}"
+							class = "form-control"
+							/>
+							<div class="text-danger" th:if="${titleErr}" th:text="${titleErr}"></div>
+						</div>
+
+						<div class ="form-group">
+							<label> Course Teacher </label>
+							<input
+							type = "text"
+							name = "teacher.id"
+							th:field = "*{teacherId}"
+							class = "form-control"
+							placeholder="Enter Teacher Id"
+							/>
+							<div class="text-danger"
+								 th:if="${teacherErr}"
+								 th:text="${teacherErr}"></div>
+						</div>
+
+						<div class="form-group">
+							<label>Introduction</label>
+							<textarea type="text"
+									  class="form-control"
+									  th:field="*{body}" ></textarea>
+							<div class="text-danger"
+								 th:if="${bodyErr}"
+								 th:text="${bodyErr}"></div>
+						</div>
+						<div class="form-group">
+							<label >Available Seats</label>
+							<input type="number"
+								   th:field="*{seats}"
+								   class="form-control" >
+							<div class="text-danger"
+								 th:if="${seatsErr}"
+								 th:text="${seatsErr}"></div>
+						</div>
+						<div class="form-group">
+							<label >Start Time</label>
+							<input type="datetime-local"
+								   th:field="*{stringStartTime}"
+								   class="form-control" >
+							<div class="text-danger"
+								 th:if="${startTimeErr}"
+								 th:text="${startTimeErr}"></div>
+						</div>
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

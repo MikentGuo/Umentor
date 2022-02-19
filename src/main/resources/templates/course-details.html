@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<fragment th:replace="fragments/head" ></fragment>
+<body>
+
+  <!-- ======= Header ======= -->
+  <fragment th:replace="fragments/header" ></fragment>
+  <!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Course Details</h2>
+        <h4 th:if="${success}" th:text="${success}"></h4>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Cource Details Section ======= -->
+    <section id="course-details" class="course-details">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-8">
+            <img th:src="@{'/courses/image/' + ${course.id}}" class="img-fluid" alt="">
+            <h3 th:text="${course.title}"></h3>
+            <p th:text="${course.body}">
+              Qui et explicabo voluptatem et ab qui vero et voluptas. Sint voluptates temporibus quam autem. Atque nostrum voluptatum laudantium a doloremque enim et ut dicta. Nostrum ducimus est iure minima totam doloribus nisi ullam deserunt. Corporis aut officiis sit nihil est. Labore aut sapiente aperiam.
+              Qui voluptas qui vero ipsum ea voluptatem. Omnis et est. Voluptatem officia voluptatem adipisci et iusto provident doloremque consequatur. Quia et porro est. Et qui corrupti laudantium ipsa.
+              Eum quasi saepe aperiam qui delectus quaerat in. Vitae mollitia ipsa quam. Ipsa aut qui numquam eum iste est dolorum. Rem voluptas ut sit ut.
+            </p>
+          </div>
+          <div class="col-lg-4">
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Trainer</h5>
+              <p th:text="${course.teacher.name}">Teacher name</p>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Available Seats</h5>
+              <p th:text="${course.getSeats()} - ${course.getStudentList().size()}">30</p>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Schedule</h5>
+              <p th:text="${#temporals.format(course.startTime, 'yyyy/MM/dd HH:mm')} + ' - ' + ${#temporals.hour(course.startTime) + 2} + ':' + ${#temporals.minute(course.startTime)}">5.00 pm - 7.00 pm</p>
+            </div>
+
+            <div class="row">
+              <div sec:authorize="isAnonymous()">
+                <a th:href="@{'/student/subscribe/' + ${course.id}}" class="get-started-btn" style="width:120px;">Subscribe</a><br>
+              </div>
+              <div sec:authorize="hasAnyRole('ROLE_STUDENT', 'ROLE_TEACHER')">
+                <a th:if="not ${isSub}" th:href="@{'/student/subscribe/' + ${course.id}}" class="get-started-btn" style="width:120px;">Subscribe</a><br>
+                <a th:if="${isSub}" th:href="@{'/chatroom/' + ${course.id}}" class="get-started-btn" style="width:120px;">Chatroom</a>
+                <a th:if="${isSub}" th:href="@{'/classroom/' + ${course.id}}" class="get-started-btn" style="width:120px;">Meeting</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Cource Details Section -->
+
+  </main><!-- End #main -->
+
+
+
+  <!-- ======= Footer ======= -->
+  <fragment th:replace="fragments/footer" ></fragment>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<fragment th:replace="fragments/head" ></fragment>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <fragment th:replace="fragments/header" ></fragment>
+  <!-- End Header -->
+
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Trainers</h2>
+
+      </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Trainers Section ======= -->
+    <section id="trainers" class="trainers">
+      <div class="container" data-aos="fade-up">
+        <fragment th:replace="fragments/trainer" ></fragment>
+      </div>
+    </section>
+    <!-- End Trainers Section -->
+
+  </main>
+  <!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <fragment th:replace="fragments/footer" ></fragment>
+
+</body>
+
+</html>

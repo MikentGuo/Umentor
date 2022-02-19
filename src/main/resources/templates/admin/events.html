@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Admin Management System</title>
+	<link rel="stylesheet"
+				href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+				integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+				crossorigin="anonymous">
+</head>
+<body>
+<fragment th:replace="fragments/adminnavbar" ></fragment>
+<div class ="container">
+	<div class = "row">
+		<h1> List Events </h1>
+	</div>
+
+	<div class = "row">
+		<div class = "col-lg-3">
+			<a th:href = "@{/admin/events/new}" class = "btn btn-primary btn-sm mb-3"> Add Event</a>
+		</div>
+	</div>
+	<table class = "table table-striped table-bordered">
+		<thead class = "table-dark">
+		<tr>
+			<th> Title</th>
+			<th> Event Content</th>
+			<th> Event Time</th>
+			<th> Actions </th>
+		</tr>
+		</thead>
+
+		<tbody>
+		<tr th:each = "event: ${events}">
+			<td th:text = "${event.title}"></td>
+			<td th:text = "${event.body}"></td>
+			<td th:text = "${event.startTime}"></td>
+			<td>
+				<a th:href = "@{/admin/events/edit/{id}(id=${event.id})}"
+					 class = "btn btn-primary">Update</a>
+
+				<a th:href = "@{/admin/events/{id}(id=${event.id})}"
+					 class = "btn btn-danger">Delete</a>
+
+			</td>
+		</tr>
+		</tbody>
+
+	</table>
+
+</div>
+</body>
+</html>

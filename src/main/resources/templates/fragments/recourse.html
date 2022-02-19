@@ -1,0 +1,30 @@
+<div class="row" data-aos="zoom-in" data-aos-delay="100">
+	<div class="col-lg-4 col-md-6 d-flex align-items-stretch" th:each="course :${courseList}">
+		<div class="course-item">
+			<img th:src="@{'/courses/image/' + ${course.course.id}}" class="img-fluid course-img" alt="..." >
+			<div class="course-content">
+				<a th:href="@{/course-details/1}" class="get-started-btn" th:text="${course.course.title}">Website Design</a>
+				<br><br>
+
+				<p th:text="${course.course.body}"></p>
+				<div class="trainer d-flex justify-content-between align-items-center">
+					<div class="trainer-profile d-flex align-items-center">
+						<img th:src="@{'/profile/image/' + ${course.course.teacher.id}}" class="img-fluid" alt="">
+						<span th:text="${course.course.teacher.name}">Antonio</span>
+					</div>
+					<div class="trainer-rank d-flex align-items-center">
+						<i class="bx bx-user" th:text="${course.course.studentList.size()}"></i>&nbsp;
+						<div sec:authorize="!hasRole('ROLE_STUDENT')">
+							<i class="bx bx-heart" th:text="${course.likes}"></i>&nbsp;
+						</div>
+						<div sec:authorize="hasRole('ROLE_STUDENT')" >
+							<i class="btn_like btn bx bx-heart"  th:text="${course.likes}" th:courseId="${course.course.id}"></i>&nbsp;
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- End Course Item-->
+</div>
+
+

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <h3 style="color: white">Admin Menu</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/admin/users}">Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/admin/courses}">Courses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/admin/trainers}">Trainers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/admin/events}">Events</a>
+      </li>
+      <li class="nav-item">
+        <!--<a class="nav-link" th:href="@{/admin/testimonials}">Testimonials</a>-->
+        <a class="nav-link" href="/inprogress">Testimonials</a>
+      </li>
+    </ul>
+  </div>
+
+  <a style="right:0" class="navbar-brand" th:href="@{/}"> << Exit </a>
+</nav>

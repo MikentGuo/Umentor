@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<fragment th:replace="fragments/head" ></fragment>
+
+<body>
+
+<!-- ======= Header ======= -->
+<fragment th:replace="fragments/header" ></fragment>
+<!-- End Header -->
+
+<main id="main">
+    <br><br><br>
+    <section id="hero" class="d-flex justify-content-center align-items-center">
+        <div style="width: 850px; border-radius: 25px;background-color: #0a53be7f" class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+            <div class="container" data-aos="fade-up">
+                <form method="post" class="form-a" th:action="@{/register}" th:object="${userReg}">
+                    <div class="row g-4">
+                        <div class="col-md-7 mx-auto">
+                            <h1>Sign Up</h1>
+                        </div>
+
+                        <div class="col-md-7 mx-auto">
+                            <label for="email" class="text-light">Email address</label>
+                            <input type="text" id="email" th:field="*{email}" class="form-control">
+                            <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                        </div>
+                        <div class="col-md-7 mx-auto">
+                            <label for="username" class="text-light">Your Name</label>
+                            <input type="text" id="username" class="form-control" th:field="*{username}">
+                            <div class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+                        </div>
+                        <div class="col-md-7 mx-auto">
+                            <label for="password" class="text-light">Password</label>
+                            <input type="password" id="password" th:field="*{password}" class="form-control">
+                            <div class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                        </div>
+                        <div class="col-md-7 mx-auto">
+                            <label for="passwordRepeat" class="text-light">Re-enter password</label>
+                            <input type="password" id="passwordRepeat" th:field="*{passwordRepeat}" class="form-control">
+                            <div class="text-danger" th:if="${#fields.hasErrors('passwordRepeat')}" th:errors="*{passwordRepeat}"></div>
+                        </div>
+                        <br>
+                        <div class="col-md-7 mx-auto">
+                            <button type="submit" class="btn-get-started text-dark" name="submit">Sign Up</button>
+                            <a th:href="@{/login}" class="get-started-btn text-dark">Sign In</a>
+                        </div>
+                        <div class="col-md-7 mx-auto"></div>
+                        <div class="col-md-7 mx-auto"></div>
+                        <div class="col-md-7 mx-auto"></div>
+                        <div class="col-md-7 mx-auto"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<fragment th:replace="fragments/footer" ></fragment>
+</body>
+
+</html>

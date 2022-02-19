@@ -1,0 +1,212 @@
+2021/12/18 - 2021/12/19
+
+Shengguang
+1. Done / not done since last scrum:
+- work on video chat
+- fix some issues
+- improve and refine
+2. To do until next Scrum:
+- improve UI and refine codes
+- test and fix issues
+- prepare ppt
+3. Need assistance / figure things out
+- Not for now
+
+Feng
+1. Done / not done since last scrum:
+- 
+2. To do until next Scrum:
+- 
+- 
+- 
+3. Need assistance / figure things out
+- Not for now
+
+----------------------------------------------------------------------------------------------
+2021/12/17
+
+Shengguang
+1. Done / not done since last scrum:
+- fix some issues about course image, course modify buttons
+- refine chat
+- work on video chat
+2. To do until next Scrum:
+- work on video chat
+3. Need assistance / figure things out
+- Not for now
+
+Feng
+1. Done / not done since last scrum:
+- admin crud for course and teacher
+2. To do until next Scrum:
+- trainer page
+- admin crud for event and testimonial
+- fix add/remove fav course
+3. Need assistance / figure things out
+- Not for now
+
+----------------------------------------------------------------------------------------------
+
+2021/12/16
+
+Shengguang
+1. Done / not done since last scrum:
+- finish testimonials
+- work on video classroom
+- midway check preparation
+2. To do until next Scrum:
+- work on video classroom
+3. Need assistance / figure things out
+- Not for now
+
+Feng
+1. Done / not done since last scrum:
+- course detail page
+- course subscription
+2. To do until next Scrum:
+- course modification
+- finish admin crud
+3. Need assistance / figure things out
+- Not for now
+
+----------------------------------------------------------------------------------------------
+
+2021/12/15
+
+Shengguang
+1. Done / not done since last scrum:
+- finish chat
+- add course page on admin
+- improve users page on admin
+- finish home page thymeleaf
+2. To do until next Scrum:
+- work on testimonials
+- work on video classroom
+3. Need assistance / figure things out
+- Not for now
+
+Feng
+1. Done / not done since last scrum:
+- course modify page
+2. To do until next Scrum:
+- course detail
+- course subscription
+3. Need assistance / figure things out
+- Not for now
+
+----------------------------------------------------------------------------------------------
+
+2021/12/14
+
+Shengguang
+1. Done / not done since last scrum:
+- work on admin management system
+- work on admin dashboard pages
+- work on chat
+2. To do until next Scrum:
+- work on chat
+- work on admin pages
+3. Need assistance / figure things out
+- Not for now
+
+Feng
+1. Done / not done since last scrum:
+- course list
+- add/remove fav course
+- pagination
+2. To do until next Scrum:
+- refine profile page
+3. Need assistance / figure things out
+- Not for now
+
+----------------------------------------------------------------------------------------------
+
+2021/12/13
+
+Shengguang
+1. Done / not done since last scrum:
+- work on event, about, trainers pages & templates
+- work on Spring boot implementation realted to above pages & templates
+- research about deploying project on heroku
+2. To do until next Scrum:
+- work on admin management system
+- work on admin dashboard pages
+3. Need assistance / figure things out
+- Not for now
+
+Feng
+1. Done / not done since last scrum:
+- Drafts of student/teacher profile
+2. To do until next Scrum:
+- course list page
+- refine profile pages
+- course detail page
+3. Need assistance / figure things out
+- Not for now
+
+----------------------------------------------------------------------------------------------
+
+2021/12/11 - 2021/12/12
+
+Shengguang
+1. Done / not done since last scrum:
+- website structure & homepage design
+- Spring boot entities, repositories and services
+2. To do until next Scrum:
+- work on event, about, trainers pages & templates
+- work on Spring boot implementation realted to above pages & templates
+3. Need assistance / figure things out
+- Not for now
+
+Feng
+1. Done / not done since last scrum:
+- AWS S3 image upload/download/delete
+2. To do until next Scrum:
+- Student profile
+3. Need assistance / figure things out
+- Not for now
+
+----------------------------------------------------------------------------------------------
+
+2021/12/10
+
+Shengguang
+1. Done / not done since last scrum:
+- website structure & homepage design
+2. To do until next Scrum:
+- continue website structure & homepage design
+- work on templates
+- work on Spring boot entities
+3. Need assistance / figure things out
+- Not for now
+
+Feng
+1. Done / not done since last scrum:
+- Login/Register, email verification
+2. To do until next Scrum:
+- AWS S3 image upload
+3. Need assistance / figure things out
+- Not for now
+
+----------------------------------------------------------------------------------------------
+
+2021/12/09
+
+Shengguang
+1. Done / not done since last scrum:
+- Initial the project (proposal, project base, trello board)
+2. To do until next Scrum:
+- website structure & homepage design
+3. Need assistance / figure things out
+- Not for now
+
+Feng
+1. Done / not done since last scrum:
+- Initial the project (proposal, project base, trello board)
+2. To do until next Scrum:
+- register and login system
+- email verification
+3. Need assistance / figure things out
+- Not for now
+
+----------------------------------------------------------------------------------------------

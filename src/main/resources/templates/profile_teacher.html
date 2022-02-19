@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<fragment th:replace="fragments/head"></fragment>
+
+<body>
+
+<!-- ======= Header ======= -->
+<fragment th:replace="fragments/header"></fragment>
+<!-- End Header -->
+
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs">
+    <div class="container">
+      <h2>My profile</h2>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a id="profile-course" href="/teacher/profile">My courses</a></li>
+          <li><a id="profile-update" href="/teacher/profile/upload_image">Update my profile</a></li>
+          <li><a id="profile-change-pw" href="/teacher/profile/change_pw">Change password</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </div><!-- End Breadcrumbs -->
+  <div class="container" th:if="${showImgForm}"> <!-- Uploading image form -->
+    <img src="/teacher/profile/avatar/download" width="100px">
+    <form method="POST" enctype="multipart/form-data" th:action="@{/teacher/profile/avatar/upload}">
+      <label for="file">Upload your avatar</label>
+      <input class="form-control form-control-lg form-control-a" type="file" id="file" name="file"/>
+      <div class="btn-center">
+        <input type="submit" name="submit" value="Upload" class="btn btn-a"/>
+      </div>
+    </form>
+  </div>
+  <div class="container" th:if="${showCourse} == true"> <!-- Course List -->
+    <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+        <fragment th:replace="fragments/course" ></fragment>
+      </div>
+    </section>
+  </div>
+  <div class="container" th:if="${showPWForm} == true"> <!-- Changing password form -->
+    <form class='changePass form-a col-md-9' method="post"  action="/teacher/profile/change_pw">
+      <div class="row">
+        <div class="col-md-9 mb-3 mx-auto">
+          <div class="text-success" th:if="${success}">Password changed successfully</div>
+          <label for="origPw" class="form-label">Current Password</label>
+          <input type="password" id="origPw" name="origPW" class="form-control form-control-lg form-control-a">
+          <div class="text-danger" th:if="${origPWError}">Incorrect password</div>
+        </div>
+        <div class="col-md-9 mb-3 mx-auto">
+          <label for="newPw" class="form-label">New Password</label>
+          <input type="password" id="newPw" name="newPW" class="form-control form-control-lg form-control-a">
+          <div class="text-danger" th:if="${newPWError}">Password must be at least 6 characters long and must contain at least one uppercase letter, one lower case letter, and one number. It must not be longer than 100 char.</div>
+        </div>
+        <div class="col-md-9 mb-3 mx-auto">
+          <label for="newPwRepeat" class="form-label">Re-enter new password</label>
+          <input type="password" id="newPwRepeat" name="newPWRepeat" class="form-control form-control-lg form-control-a">
+          <div class="text-danger" th:if="${pwRepeatError}" >Please enter the same password</div>
+        </div>
+        <div class="text-center">
+          <button class="get-started-btn" id="btnChangePass" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<fragment th:replace="fragments/footer"></fragment>
+</body>
+
+</html>

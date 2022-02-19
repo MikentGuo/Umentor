@@ -1,0 +1,18 @@
+<div class="row" data-aos="zoom-in" data-aos-delay="100">
+  <div class="col-lg-4 col-md-6 d-flex align-items-stretch" th:each="teacher :${teacherList}">
+    <div class="load-more member" style="display: none;">
+      <img th:src="@{'/profile/image/' + ${teacher.id}}" class="img-fluid" alt="">
+      <div class="member-content">
+        <h4 th:text="${teacher.name}">Walter White</h4>
+        <span th:text="${teacher.title}">Web Development</span>
+        <p th:text="${teacher.description}">
+          Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <br>
+    <button class="get-started-btn" id="loadMore"><span style="color: white;">Load More</span></button>
+  </div>
+</div>

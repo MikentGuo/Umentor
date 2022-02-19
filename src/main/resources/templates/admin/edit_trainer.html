@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Admin Management System</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+<fragment th:replace="fragments/adminnavbar" ></fragment>
+<br>
+<br>
+<div class = "container">
+  <div class = "row">
+    <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+      <h1 class = "text-center"> Update Trainer </h1>
+      <div class = "card-body">
+        <form method="POST" enctype="multipart/form-data" th:action="@{/profile/avatar/upload/{id} (id=${curTeacher.id})}">
+          <div class="form-group">
+            <h3>Upload your Image</h3>
+          </div>
+          <div class="form-group">
+            <input class="form-control form-control-lg form-control-a" type="file" id="file" name="file"/>
+          </div>
+          <div class="box-footer">
+            <input type="submit" name="submit" value="Upload" class="get-started-btn"/>
+          </div>
+        </form>
+        <form th:action="@{/admin/trainer/edit/{id} (id=${curTeacher.id})}" th:object="${trainer}" method="POST">
+          <div class="form-group">
+            <label  class="text-black">Full Name</label>
+            <input type="text"  th:field="*{userName}" class="form-control" th:placeholder="${curTeacher.getName()}">
+            <div class="text-danger" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+          </div>
+          <div class="form-group">
+            <label class="text-black">Title</label>
+            <input type="text"  class="form-control" th:field="*{title}" th:placeholder="${curTeacher.title}">
+            <div class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+          </div>
+          <div class="form-group">
+            <label  class="text-black">Introduction</label>
+            <textarea type="text"  th:field="*{description}" class="form-control" th:placeholder="${curTeacher.description}"></textarea>
+            <div class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+          </div>
+          <div class="box-footer">
+            <input type="submit" name="submit" value="submit" class="get-started-btn"/>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
